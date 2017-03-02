@@ -1,0 +1,4 @@
+---
+local:
+  :game_port: 98732
+  :game_server: 127.0.0.1
