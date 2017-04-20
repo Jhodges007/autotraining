@@ -1,26 +1,21 @@
 require 'sinatra'
 require 'json'
+require './tic_tac_toe.rb'
 
-environment = ENV['ENVIRONMENT']
-
-get '/hello' do
-  'hello world!'
-end
 
 post '/tictactoe/next-move' do
 
   request.body.rewind
-  payload = JSON.parse(request.body.read)
-  board = payload["board"]
-
-  board.sub!(/\*/, payload["piece"])
-  board
-
-end
-
-def analyze
+  jsn = JSON.parse(request.body.read)
+  ttt = TicTacToe.new
+  ttt.next_move(jsn)
 
 end
 
 
+#########From hello world example:
+# environment = ENV['ENVIRONMENT']
 
+get '/hello' do
+  'hello world!'
+end
