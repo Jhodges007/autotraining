@@ -8,12 +8,18 @@ get '/hello' do
 end
 
 post '/tictactoe/next-move' do
-#  "*********"
+
   request.body.rewind
   payload = JSON.parse(request.body.read)
   board = payload["board"]
+
   board.sub!(/\*/, payload["piece"])
   board
+
+end
+
+def analyze
+
 end
 
 
