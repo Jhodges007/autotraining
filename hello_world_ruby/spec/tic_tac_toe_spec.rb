@@ -46,6 +46,18 @@ describe TicTacToe do
         next_move = "x**oo***x"
         expect(@ttt.next_move(move)).to eql(next_move)
       end
+
+      it "block horizontal row 1 xx" do
+        move = JSON.parse('{"board": "x*o*****x", "piece": "o"}')
+        next_move = "x*x******"
+        expect(@ttt.next_move(move)).to eql(next_move)
+      end
+
+      it "block vertical row 1 xx" do
+        move = JSON.parse('{"board": "x*****x**", "piece": "o"}')
+        next_move = "x**o**x**"
+        expect(@ttt.next_move(move)).to eql(next_move)
+      end
     end
 
 
